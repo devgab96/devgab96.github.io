@@ -1,0 +1,25 @@
+{
+  "name": "nereus",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/index.js",
+    "first-start": "yarn install && npx prisma migrate up --experimental --create-db && npx prisma generate && node ./prisma/seed && node src/index.js",
+    "make-migrate": "npx prisma migrate save --experimental",
+    "migrate": "npx prisma migrate up --experimental && npx prisma generate",
+    "generate": "npx prisma generate",
+    "seed": "node ./prisma/seed",
+    "view-db": "npx prisma studio --experimental",
+    "docs": "start \"\" \"https://www.howtographql.com/graphql-js/0-introduction/\""
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^2.9.0",
+    "bcryptjs": "^2.4.3",
+    "graphql-yoga": "^1.18.3",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "@prisma/cli": "2.8.1"
+  }
+}

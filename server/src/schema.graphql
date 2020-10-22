@@ -1,0 +1,57 @@
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  password: String!
+  firstName: String!
+  middleName: String!
+  lastName: String!
+  rank: Rank!
+  graduatedFrom: String!
+  birthday: String! # TODO Make a Date scalar
+  address: String!
+  phoneNumber: String!
+  company: String
+  referredBy: String
+  createdAt: String!
+}
+
+type Rank {
+  id: ID!
+  name: String!
+}
+
+
+type Query {
+  hello: String
+  ranks: [Rank]
+}
+
+type Mutation {
+  signup(
+    username: String!
+    email: String!
+    password: String!
+    firstName: String!
+    middleName: String!
+    lastName: String!
+    rank: Int!
+    graduatedFrom: String!
+    birthday: String!
+    address: String!
+    phoneNumber: String!
+    company: String
+    referredBy: String
+  ): AuthPayload
+  
+  login(username: String!, password: String!): AuthPayload
+}
+
+# type Subscription {
+# }
+
+
+type AuthPayload {
+  token: String
+  user: User
+}
